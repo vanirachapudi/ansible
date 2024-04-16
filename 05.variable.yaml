@@ -1,4 +1,4 @@
-name: variable from PLAY level 1
+- name: variable from PLAY level 1
   hosts: localhost
 
   vars_files:
