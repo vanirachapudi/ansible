@@ -1,0 +1,10 @@
+- name: loops
+  hosts: localhost
+  tasks:
+  - name: cheking the persons
+    ansible.builtin.debuge:
+      msg: "hello {{item}}"  # default keyword
+    loop:
+    - ramesh
+    - anji
+    - vani
