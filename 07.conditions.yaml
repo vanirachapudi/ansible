@@ -1,0 +1,20 @@
+- name: conditions
+  hosts: localhost
+  tasks:
+  - name: check user are exist r not
+    ansible.builtin.command: id roboshop
+    register: user
+    ignore_errors: true
+
+  - name: print the value
+    ansible.builtin.debuge:
+      msg: "user output is : {{user}}"
+
+  - name: print the exit ststus code
+    ansible.builtin.debuge:
+      msg: "status code is: {{user.rc}}"
+ 
+  - name: create user
+    ansible.builtin.user:
+      name: roboshop
+    when: user.rc != 0 #condition
